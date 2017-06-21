@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,22 +20,29 @@ import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     String jsonString;
+    DecimalFormat formatter = new DecimalFormat("#,###.00");
+    double jumlah;
+    double rupiah;
     String zcl,zclassic, ayy;
     List <Data> d;
-    TextView tv,zcltv, unconfirmed, confirmed, hashrate,balancetv;
+    TextView tv,zcltv, unconfirmed, confirmed, hashrate,balancetv,total,IDR, percentage;
+    ProgressBar progress2;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -44,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
         confirmed = (TextView) findViewById(R.id.confirmed);
         hashrate = (TextView) findViewById(R.id.hashrate);
         balancetv = (TextView) findViewById(R.id.balancetv);
+        total = (TextView) findViewById(R.id.total);
+        IDR = (TextView) findViewById(R.id.totalIDR);
+        percentage = (TextView) findViewById(R.id.textView12);
+        progress2 = (ProgressBar) findViewById(R.id.progressBar3);
+
     }
     @Override
     protected void onResume() {
@@ -259,6 +272,16 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            jumlah = Double.parseDouble(unconfirmed.getText().toString()) + Double.parseDouble(confirmed.getText().toString()) + Double.parseDouble(balancetv.getText().toString());
+            rupiah = jumlah * Double.parseDouble(zcltv.getText().toString()) * Double.parseDouble(tv.getText().toString());
+            double currentDouble = (Double.parseDouble(unconfirmed.getText().toString()) + Double.parseDouble(confirmed.getText().toString())) * 10;
+            int current = (int) currentDouble;
+            int persen = current * 100 / 26;
+            total.setText(Double.toString(jumlah));
+            IDR.setText(" (IDR " + formatter.format(rupiah) + ")");
+            percentage.setText(persen + "% Completion rate");
+            progress2.setMax(26);
+            progress2.setProgress(current);
             pdLoading.dismiss();
         }
     }
