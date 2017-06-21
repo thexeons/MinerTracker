@@ -31,9 +31,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     String jsonString;
-    String zcl,zclassic;
+    String zcl,zclassic, ayy;
     List <Data> d;
-    TextView tv,zcltv, unconfirmed, confirmed, hashrate;
+    TextView tv,zcltv, unconfirmed, confirmed, hashrate,balancetv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         unconfirmed = (TextView) findViewById(R.id.unconfirmed);
         confirmed = (TextView) findViewById(R.id.confirmed);
         hashrate = (TextView) findViewById(R.id.hashrate);
+        balancetv = (TextView) findViewById(R.id.balancetv);
     }
     @Override
     protected void onResume() {
@@ -125,6 +126,27 @@ public class MainActivity extends AppCompatActivity {
             try {
                 BufferedInputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 zclassic = IOUtils.toString(in,"UTF-8");
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                urlConnection.disconnect();
+            }
+
+            //URL4
+            try {
+                url = new URL("https://aayanl.tech/insight-api/addr/t1WtGhNbKXEwzsXXr4Qs9SthS5vqvEaogv3/?noTxList=1");
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            urlConnection = null;
+            try {
+                urlConnection = (HttpURLConnection) url.openConnection();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                BufferedInputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                ayy = IOUtils.toString(in,"UTF-8");
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
@@ -219,17 +241,26 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
+            //Update hashrate di UI
             try {
                 hashrate.setText(personal.getString("hashrate"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            //URL4
+            try {
+                a = new JSONObject(ayy);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
+                balancetv.setText(a.getString("balance"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             pdLoading.dismiss();
         }
     }
-
-
-
 
 }

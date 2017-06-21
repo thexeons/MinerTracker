@@ -112,6 +112,29 @@
         android:id="@+id/hashrate"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintVertical_bias="0.663" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Balance: "
+        android:textSize="24dp"
+
+        app:layout_constraintVertical_bias="0.769"
+        app:layout_constraintHorizontal_bias="0.501" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Value"
+        android:id="@+id/balancetv"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintVertical_bias="0.825" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -122,5 +145,5 @@
         android:onClick="Klik"
         android:text="refresh"
         android:id="@+id/buttonRefresh"
-        app:layout_constraintVertical_bias="0.818" />
+        app:layout_constraintVertical_bias="0.965" />
 </android.support.constraint.ConstraintLayout>
