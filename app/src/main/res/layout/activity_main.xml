@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.swipemarket.myapplication.MainActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bitcoin Rate:"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/text1"
+        app:layout_constraintVertical_bias="0.099" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ZCL-BTC Rate:"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintVertical_bias="0.18" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Value"
+        android:id = "@+id/ZCL"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintVertical_bias="0.251" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Confirmed Balance: "
+        android:textSize="24dp"
+        app:layout_constraintVertical_bias="0.321" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Value"
+        android:id = "@+id/confirmed"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintVertical_bias="0.396" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Unconfirmed Balance: "
+        android:textSize="24dp"
+        app:layout_constraintVertical_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.503" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Value"
+        android:id = "@+id/unconfirmed"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintVertical_bias="0.536" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Hash Rate: "
+        android:textSize="24dp"
+
+        app:layout_constraintVertical_bias="0.62" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Value"
+        android:id="@+id/hashrate"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintVertical_bias="0.663" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="Klik"
+        android:text="refresh"
+        android:id="@+id/buttonRefresh"
+        app:layout_constraintVertical_bias="0.818" />
+</android.support.constraint.ConstraintLayout>
